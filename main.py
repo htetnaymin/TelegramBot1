@@ -5,9 +5,9 @@ import os
 import requests
 from bs4 import BeautifulSoup
 
-load_dotenv()
 api="2010690749:AAEc3sPXTP4YrVnCSxxI2oUvlz5j6LNFS2g"
 bot=telebot.TeleBot(api)
+
 
 def getMeaning(word):
     url=f"https://www.myordbok.com/definition?q={word}"
