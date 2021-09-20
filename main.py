@@ -44,12 +44,24 @@ def search(message):
     bot.send_message(message.chat.id,meaning)
     
 
-@bot.message_handler(content_types=["text","sticker", "video", "photo", "audio", "voice", "location", "contact", "document"])
+@bot.message_handler(content_types=["sticker", "video", "photo", "audio", "voice", "location", "contact", "document"])
 def forward(message):
     data = "From {} {}".format(message.from_user.first_name, message.from_user.last_name)
     bot.forward_message(-510713803, message.chat.id, message.message_id)
     bot.send_message(-510713803, data)
 
+@bot.message_handler(commands=["about"])
+def about(message):
+    us="Creaed on 18 Sep and Modified on 20 Sep. \n Creator : HNM"
+    bot.send_message(message.chat.id,us)
+
+@bot.message_handler(content_types=["text"])
+def browse(message):
+    text=message.text
+    meaning=getMeaning(text)
+    user_data="{} {} searched '{}'".format(message.from_user.first_name, message.from_user.last_name,text)
+    bot.send_message(-510713803, user_data)
+    bot.send_message(message.chat.id,meaning)
 
 
 bot.polling()
