@@ -6,7 +6,7 @@ import requests
 from bs4 import BeautifulSoup
 
 load_dotenv()
-api=os.getenv["API"]
+api="2010690749:AAEc3sPXTP4YrVnCSxxI2oUvlz5j6LNFS2g"
 bot=telebot.TeleBot(api)
 
 def getMeaning(word):
