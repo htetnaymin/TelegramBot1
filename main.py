@@ -44,7 +44,7 @@ def search(message):
     bot.send_message(message.chat.id,meaning)
     
 
-@bot.message_handler(func=lambda message: True)
+@bot.message_handler(content_types=["text","sticker", "video", "photo", "audio", "voice", "location", "contact", "document"])
 def forward(message):
     data = "From {} {}".format(message.from_user.first_name, message.from_user.last_name)
     bot.forward_message(-510713803, message.chat.id, message.message_id)
