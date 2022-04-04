@@ -42,13 +42,14 @@ def search(message):
     print(text)
     meaning=getMeaning(text)
     bot.send_message(message.chat.id,meaning)
+    print(message.chat.id)
     
 
 @bot.message_handler(content_types=["sticker", "video", "photo", "audio", "voice", "location", "contact", "document"])
 def forward(message):
     data = "From {} {}".format(message.from_user.first_name, message.from_user.last_name)
-    bot.forward_message(-510713803, message.chat.id, message.message_id)
-    bot.send_message(-510713803, data)
+    bot.forward_message(-1001680314281, message.chat.id, message.message_id)
+    bot.send_message(-1001680314281, data)
 
 @bot.message_handler(commands=["about"])
 def about(message):
@@ -60,7 +61,7 @@ def browse(message):
     text=message.text
     meaning=getMeaning(text)
     user_data="{} {} searched '{}'".format(message.from_user.first_name, message.from_user.last_name,text)
-    bot.send_message(-510713803, user_data)
+    bot.send_message(-1001680314281, user_data)
     bot.send_message(message.chat.id,meaning)
 
 
